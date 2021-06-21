@@ -1,17 +1,22 @@
+use atty::Stream;
 use regex::Regex;
 use std::env;
 use std::io::{self, BufRead};
 use std::process::exit;
 
 fn get_input() -> Option<String> {
-    let args: Vec<String> = env::args().collect();
-    if args.len() != 2 {
+    if atty::is(Stream::Stdin) {
+        let args: Vec<String> = env::args().collect();
+        if args.len() == 2 {
+            return Some(args[1].clone());
+        }
+    } else {
         let stdin = io::stdin();
-        let line = stdin.lock().lines().next().unwrap().unwrap();
-        return Some(line);
+        let first_line = stdin.lock().lines().next().unwrap().unwrap();
+        return Some(first_line);
     }
 
-    Some(args[1].clone())
+    None
 }
 
 fn main() {
