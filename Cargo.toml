@@ -1,7 +1,19 @@
 [package]
 name = "is-emoji"
+description = "A small CLI to check if a certain input is an emoji"
+authors = ["Corentin Girard <corentingirard.dev@gmail.com>"]
 version = "0.1.0"
+keywords = ["cli", "emoji", "util"]
+repository = "https://github.com/Drarig29/is-emoji"
+homepage = "https://github.com/Drarig29/is-emoji"
+readme = "README.md"
+license = "MIT"
 edition = "2018"
+
+exclude = [
+    ".gitignore",
+    "target/**"
+]
 
 [dependencies]
 regex = "1"
