@@ -12,8 +12,10 @@ fn get_input() -> Option<String> {
         }
     } else {
         let stdin = io::stdin();
-        let first_line = stdin.lock().lines().next().unwrap().unwrap();
-        return Some(first_line);
+        let first_line = stdin.lock().lines().next()?;
+        if let Ok(first_line) = first_line {
+            return Some(first_line);
+        }
     }
 
     None
