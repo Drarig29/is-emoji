@@ -4,6 +4,8 @@ use std::env;
 use std::io::{self, BufRead};
 use std::process::exit;
 
+const EMOJI_REGEX: &str = r"^\p{Extended_Pictographic}$";
+
 fn get_input() -> Option<String> {
     if atty::is(Stream::Stdin) {
         let args: Vec<String> = env::args().collect();
@@ -21,11 +23,14 @@ fn get_input() -> Option<String> {
     None
 }
 
+fn is_emoji(input: &str) -> bool {
+    let re = Regex::new(EMOJI_REGEX).unwrap();
+    re.is_match(&input)
+}
+
 fn main() {
     if let Some(input) = get_input() {
-        let re = Regex::new(r"^\p{Extended_Pictographic}$").unwrap();
-        let is_emoji = re.is_match(&input);
-        exit(!is_emoji as i32)
+        exit(!is_emoji(&input) as i32)
     }
 
     println!("Usage: is-emoji <arg>");
