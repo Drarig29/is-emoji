@@ -22,7 +22,9 @@ Another possible exit code is `101`, which is the code Rust sets when a program 
 
 ## How it works?
 
-It's just a small CLI written in Rust, which uses a regular expression with the `\p{Extended_Pictographic}` class.
+It's just a small CLI written in Rust, which uses a regular expression based on https://unicode.org/reports/tr51/#EBNF_and_Regex.
+
+It uses `\p{Extended_Pictographic}` instead of `\p{Emoji}` for future proofness.
 
 ## Why?
 
