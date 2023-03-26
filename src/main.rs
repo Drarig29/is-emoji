@@ -36,3 +36,24 @@ fn main() {
     println!("Usage: is-emoji <arg>");
     exit(128);
 }
+
+#[test]
+fn test_no_emoji() {
+    assert_eq!(is_emoji(""), false);
+    assert_eq!(is_emoji("a"), false);
+    assert_eq!(is_emoji("hello"), false);
+}
+
+#[test]
+fn test_ascii_emoji() {
+    assert_eq!(is_emoji(":)"), false);
+    assert_eq!(is_emoji(":-)"), false);
+    assert_eq!(is_emoji(":P"), false);
+}
+
+#[test]
+fn test_basic_emoji() {
+    assert_eq!(is_emoji("😀"), true);
+    assert_eq!(is_emoji("🥸"), true);
+    assert_eq!(is_emoji("🔥"), true);
+}
