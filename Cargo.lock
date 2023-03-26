@@ -33,7 +33,7 @@ dependencies = [
 
 [[package]]
 name = "is-emoji"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "atty",
  "regex",

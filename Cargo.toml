@@ -2,7 +2,7 @@
 name = "is-emoji"
 description = "A small CLI to check if a certain input is an emoji"
 authors = ["Corentin Girard <corentingirard.dev@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 keywords = ["cli", "emoji", "util"]
 repository = "https://github.com/Drarig29/is-emoji"
 homepage = "https://github.com/Drarig29/is-emoji"
